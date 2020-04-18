@@ -51,7 +51,7 @@ seed = 0
 parentModelName = 'parent'
 # Select which GPU, -1 if CPU
 gpu_id = 0
-device = torch.device("cuda:"+str(gpu_id) if torch.cuda.is_available() else "cpu")
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 # Network definition
 net = vo.OSVOS(pretrained=0)
@@ -59,8 +59,9 @@ net.load_state_dict(torch.load(os.path.join(save_dir, parentModelName+'_epoch-'+
                                map_location=lambda storage, loc: storage))
 
 # Logging into Tensorboard
-log_dir = os.path.join(save_dir, 'runs', datetime.now().strftime('%b%d_%H-%M-%S') + '_' + socket.gethostname()+'-'+seq_name)
-writer = SummaryWriter(log_dir=log_dir)
+ROOT_LOG_DIR = "/content/drive/My Drive/MP"
+TENSORBOARD_DIR = "qXX" # Sub-Directory for storing this specific experiment's logs
+writer = SummaryWriter(os.path.join(ROOT_LOG_DIR, TENSORBOARD_DIR))
 
 net.to(device)  # PyTorch 0.4.0 style
 
