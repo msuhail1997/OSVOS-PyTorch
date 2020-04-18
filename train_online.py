@@ -5,7 +5,7 @@ import os
 import socket
 import timeit
 from datetime import datetime
-from tensorboardX import SummaryWriter
+from torch.utils.tensorboard import SummaryWriter
 
 # PyTorch includes
 import torch
