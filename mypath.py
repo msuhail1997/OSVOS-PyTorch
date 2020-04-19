@@ -8,9 +8,9 @@ class Path(PathAbstract):
 
     @staticmethod
     def save_root_dir():
-        return './models'
+        return '/content/OSVOS-PyTorch/models'
 
     @staticmethod
     def models_dir():
-        return "./models"
+        return "/content/OSVOS-PyTorch/models"
 
