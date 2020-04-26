@@ -27,7 +27,7 @@ import imageio
 
 # Setting of parameters
 if 'SEQ_NAME' not in os.environ.keys():
-    seq_name = 'WAD'
+    seq_name = 'blackswan'
 else:
     seq_name = str(os.environ['SEQ_NAME'])
 
