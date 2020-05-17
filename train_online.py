@@ -24,6 +24,9 @@ from dataloaders.helpers import *
 from mypath import Path
 
 import imageio
+import hiddenlayer as hl
+from pdb import set_trace as debug
+
 
 # Setting of parameters
 if 'SEQ_NAME' not in os.environ.keys():
@@ -68,13 +71,22 @@ writer = SummaryWriter(os.path.join(ROOT_LOG_DIR, TENSORBOARD_DIR))
 net.to(device)  # PyTorch 0.4.0 style
 
 # Visualize the network
+c = hl.Canvas()
 if vis_net:
     x = torch.randn(1, 3, 480, 854)
     x.requires_grad_()
     x = x.to(device)
+
+    # hl.build_graph(net, x)
+
+    # g = hl.build_graph(net, x)
+    # g.save( "pytorch_osvos.pdf")
+
     y = net.forward(x)
     g = viz.make_dot(y, net.state_dict())
     g.view()
+
+    # debug()
 
 # Use the following optimizer
 lr = 1e-8
