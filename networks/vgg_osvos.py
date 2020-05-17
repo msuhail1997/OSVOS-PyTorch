@@ -11,6 +11,7 @@ import torch.nn.modules as modules
 
 from layers.osvos_layers import center_crop, interp_surgery
 from mypath import Path
+from pdb import set_trace as debug
 
 
 class OSVOS(nn.Module):
@@ -71,6 +72,8 @@ class OSVOS(nn.Module):
         out = torch.cat(side[:], dim=1)
         out = self.fuse(out)
         side_out.append(out)
+        debug()
+        print(side_out)
         return side_out
 
     def _initialize_weights(self, pretrained):
