@@ -1,4 +1,4 @@
-# OSVOS: One-Shot Video Object Segmentation
+# OSVOS: One-Shot Video Object Segmentation for Autonomous Cars
 Check our [project page](http://www.vision.ee.ethz.ch/~cvlsegmentation/osvos) for additional information.
 ![OSVOS](doc/ims/osvos.png)
 
